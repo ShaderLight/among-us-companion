@@ -6,3 +6,22 @@
 .fadeable.faded {
   opacity: 0;
 }
+
+#color-selection {
+  color: #f6f6f6;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.column {
+  flex: 100%;
+  padding: 0 2px;
+}
+
+.color-checkbox {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  padding: 2px;
+}

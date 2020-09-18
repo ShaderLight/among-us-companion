@@ -8,6 +8,7 @@ function toggleColor(color) {
         clickedImage.src = `img/${color}_yes.png`
         window.playerColors.push(color)
     }
+    updateCounter()
 }
 
 function removeOne(colorArray, color){
@@ -21,3 +22,9 @@ function removeOne(colorArray, color){
     output = colorArray.filter(function() { return true; });
     return output
 }
+
+function updateCounter(){
+    var len = window.playerColors.length
+    document.getElementById('player-counter').innerHTML = len
+}
+

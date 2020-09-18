@@ -5,6 +5,7 @@ async function init() {
     document.getElementById("begin-button").classList.toggle("faded")
     await sleep(500)
     document.getElementById("color-selection").classList.toggle("faded")
+    document.getElementById("player-counter").classList.toggle("faded")
 
 }
 

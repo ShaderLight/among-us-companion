@@ -8,43 +8,52 @@
 </head>
 
 <body>
-  <h1 id="welcome-header" class="fadeable">Among Us companion</h1>
 
-<p id="welcome-desc" class="fadeable">
-  This little app enables you to note your suspicions 
-  as a crewmate, without needing any paper
-</p>
+<div class="wrapper">
+  <div id="welcome-page" class="page fadeable">
+    <h1 id="welcome-header">Among Us companion</h1>
 
-<div id="color-selection" class="fadeable faded">
-  <div class="column">
-    <img src="img/red_yes.png" id="red" class="color-checkbox" onclick="toggleColor('red')">
-    <img src="img/blue_yes.png" id="blue" class="color-checkbox" onclick="toggleColor('blue')">
-    <img src="img/green_yes.png" id="green" class="color-checkbox" onclick="toggleColor('green')">
+    <p id="welcome-desc">
+      This little app enables you to note your suspicions 
+      as a crewmate, without needing any paper
+    </p>
+
+    <button id="begin-button" type="button" onclick="init()" >Start a game</button>
   </div>
-  <div class="column">
-    <img src="img/pink_yes.png" id="pink" class="color-checkbox" onclick="toggleColor('pink')">
-    <img src="img/orange_yes.png" id="orange" class="color-checkbox" onclick="toggleColor('orange')">
-    <img src="img/yellow_yes.png" id="yellow" class="color-checkbox" onclick="toggleColor('yellow')">
-  </div>
-  <div class="column">
-    <img src="img/grey_yes.png" id="grey" class="color-checkbox" onclick="toggleColor('grey')">
-    <img src="img/white_yes.png" id="white" class="color-checkbox" onclick="toggleColor('white')">
-    <img src="img/purple_yes.png" id="purple" class="color-checkbox" onclick="toggleColor('purple')">
-  </div>
-  <div class="column">
-    <img src="img/brown_yes.png" id="brown" class="color-checkbox" onclick="toggleColor('brown')">
-    <img src="img/cyan_yes.png" id="cyan" class="color-checkbox" onclick="toggleColor('cyan')">
-    <img src="img/lime_yes.png" id="lime" class="color-checkbox" onclick="toggleColor('lime')">
+
+  <div id="selection-page" class="page fadeable faded">
+    <div id="color-selection">
+      <div class="column">
+        <img src="img/red_yes.png" id="red" class="color-checkbox" onclick="toggleColor('red')">
+        <img src="img/blue_yes.png" id="blue" class="color-checkbox" onclick="toggleColor('blue')">
+        <img src="img/green_yes.png" id="green" class="color-checkbox" onclick="toggleColor('green')">
+      </div>
+      <div class="column">
+        <img src="img/pink_yes.png" id="pink" class="color-checkbox" onclick="toggleColor('pink')">
+        <img src="img/orange_yes.png" id="orange" class="color-checkbox" onclick="toggleColor('orange')">
+        <img src="img/yellow_yes.png" id="yellow" class="color-checkbox" onclick="toggleColor('yellow')">
+      </div>
+      <div class="column">
+        <img src="img/grey_yes.png" id="grey" class="color-checkbox" onclick="toggleColor('grey')">
+        <img src="img/white_yes.png" id="white" class="color-checkbox" onclick="toggleColor('white')">
+        <img src="img/purple_yes.png" id="purple" class="color-checkbox" onclick="toggleColor('purple')">
+      </div>
+      <div class="column">
+        <img src="img/brown_yes.png" id="brown" class="color-checkbox" onclick="toggleColor('brown')">
+        <img src="img/cyan_yes.png" id="cyan" class="color-checkbox" onclick="toggleColor('cyan')">
+        <img src="img/lime_yes.png" id="lime" class="color-checkbox" onclick="toggleColor('lime')">
+      </div>
+    </div>
+
+    <p id="player-counter">12</p>
   </div>
 </div>
-<div>
-  <p id="player-counter" class="fadeable faded">12</p>
-</div>
-<button id="begin-button" class="fadeable" type="button" onclick="init()" >Start a game</button>
 
-</body>
-
-
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://demos.flesler.com/jquery/scrollTo/js/jquery.scrollTo-min.js"></script>
 <script src="scripts/initialize.js"></script>
 <script src="scripts/color_management.js"></script>
+<script src="scripts/resizer.js"></script>
+
+</body>
 </html>

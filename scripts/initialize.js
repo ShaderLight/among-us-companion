@@ -1,11 +1,15 @@
 async function init() {
     window.playerColors = ["red", "blue", "green", "pink", "orange", "yellow", "grey", "white", "purple", "brown", "cyan", "lime"]
-    document.getElementById("welcome-header").classList.toggle("faded")
-    document.getElementById("welcome-desc").classList.toggle("faded")
-    document.getElementById("begin-button").classList.toggle("faded")
-    await sleep(500)
-    document.getElementById("color-selection").classList.toggle("faded")
-    document.getElementById("player-counter").classList.toggle("faded")
+    
+    document.getElementById("welcome-page").classList.toggle("faded")
+
+    await sleep(80)
+    $('.wrapper').scrollTo('#color-selection', {duration:600})
+    await sleep(300)
+
+    document.getElementById("selection-page").classList.toggle("faded")
+
+    window.currentPage = $('#color-selection')
 
 }
 

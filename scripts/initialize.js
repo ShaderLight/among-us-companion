@@ -4,13 +4,26 @@ async function init() {
     document.getElementById("welcome-page").classList.toggle("faded")
 
     await sleep(80)
-    $('.wrapper').scrollTo('#color-selection', {duration:600})
+    $('.wrapper').scrollTo('#selection-page', {duration:600})
     await sleep(300)
 
     document.getElementById("selection-page").classList.toggle("faded")
 
-    window.currentPage = $('#color-selection')
+    window.currentPage = $('#selection-page')
+    updateStartButton()
+}
 
+async function initAgain() {
+    document.getElementById("post-game").classList.toggle("faded")
+
+    await sleep(80)
+    $('.wrapper').scrollTo('#welcome-page')
+    $('.wrapper').scrollTo('#selection-page', {duration:600})
+    await sleep(300)
+
+    document.getElementById("selection-page").classList.toggle("faded")
+
+    window.currentPage = $('#selection-page')
 }
 
 function sleep(ms) {

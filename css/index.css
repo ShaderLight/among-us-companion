@@ -60,3 +60,11 @@ html, body {
   width: 100%;
   text-align: center;
 }
+
+#game-page {
+  left: 200%;
+}
+
+#post-game {
+  left: 300%;
+}

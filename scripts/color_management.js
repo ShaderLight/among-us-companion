@@ -9,9 +9,10 @@ function toggleColor(color) {
         window.playerColors.push(color)
     }
     updateCounter()
+    updateStartButton()
 }
 
-function removeOne(colorArray, color){
+function removeOne(colorArray, color) {
     var output, len;
     len = colorArray.length
     for (i = 0; i < len; i++) {
@@ -23,8 +24,18 @@ function removeOne(colorArray, color){
     return output
 }
 
-function updateCounter(){
+function updateCounter() {
     var len = window.playerColors.length
     document.getElementById('player-counter').innerHTML = len
 }
 
+function updateStartButton() {
+    if ((window.playerColors.length > 10) || (window.playerColors.length < 3)){
+        document.getElementById("start-button").style.opacity = 0.2
+        console.log('not enough players')
+    }
+    else {
+        document.getElementById("start-button").style.opacity = 1
+        console.log('enough players')
+    }
+}

@@ -3,6 +3,8 @@ async function startGame() {
         alert("Player count must be between 3 and 10")
     }
     else {
+        document.getElementById("player-container").innerHTML = generatePlayerTable()
+
         document.getElementById("selection-page").classList.toggle("faded")
 
         await sleep(80)
@@ -23,4 +25,26 @@ async function endGame() {
     await sleep(300)
 
     document.getElementById("post-game").classList.toggle("faded")
+}
+
+function generatePlayerTable() {
+    var tableString;
+    tableString = "<table>"
+    
+    rowNum = Math.ceil(window.playerColors.length/2)
+
+    for (i=0; i<rowNum; i++) {
+        tableString += "<tr>"
+        
+        if (window.playerColors[i+rowNum] == undefined) {
+            tableString += `<td>${window.playerColors[i]}</td>`
+        }
+        else {
+            tableString += `<td>${window.playerColors[i]}</td><td>${window.playerColors[i+rowNum]}`
+        }
+    }
+
+    tableString += "</table>"
+
+    return tableString
 }

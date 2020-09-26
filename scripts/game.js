@@ -4,6 +4,7 @@ async function startGame() {
     }
     else {
         document.getElementById("player-container").innerHTML = generatePlayerTable()
+        initPlayerData()
         document.getElementById("selection-page").classList.toggle("faded")
 
         await sleep(80)
@@ -37,14 +38,53 @@ function generatePlayerTable() {
         tableString += "<tr>"
         
         if (window.playerColors[i+rowNum] == undefined) {
-            tableString += `<td id="${window.playerColors[i]}-cell" class="player-cell">${window.playerColors[i]}</td>`
+            tableString += `<td id="${window.playerColors[i]}-cell" class="player-cell" onclick="stateCycle(this.id)">${window.playerColors[i]}</td>`
         }
         else {
-            tableString += `<td id="${window.playerColors[i]}-cell" class="player-cell">${window.playerColors[i]}</td><td id="${window.playerColors[i+rowNum]}-cell" class="player-cell">${window.playerColors[i+rowNum]}`
+            tableString += `<td id="${window.playerColors[i]}-cell" class="player-cell" onclick="stateCycle(this.id)">${window.playerColors[i]}</td><td id="${window.playerColors[i+rowNum]}-cell" class="player-cell" onclick="stateCycle(this.id)">${window.playerColors[i+rowNum]}`
         }
     }
 
     tableString += "</table>"
 
     return tableString
+}
+
+function stateCycle(invokedById) {
+    var invokedBy = $(`#${invokedById}`)
+    switch (invokedBy.data('state')) {
+        case "stateless":
+            invokedBy.data('state', "clean")
+            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            break
+        case "clean":
+            invokedBy.data('state', "suspected")
+            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            break
+        case "suspected":
+            invokedBy.data('state', "dead")
+            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            break
+        case "dead":
+            invokedBy.data('state', "stateless")
+            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+    }
+}
+
+function initPlayerData() {
+    var rowNum = Math.ceil(window.playerColors.length/2)
+    for (i=0; i<rowNum; i++) {
+        if (window.playerColors[i+rowNum] == undefined) {
+            $(`#${window.playerColors[i]}-cell`).data("color", window.playerColors[i])
+            $(`#${window.playerColors[i]}-cell`).data("state", "stateless")
+        }
+        else {
+            $(`#${window.playerColors[i]}-cell`).data("color", window.playerColors[i])
+            $(`#${window.playerColors[i]}-cell`).data("state", "stateless")
+
+            $(`#${window.playerColors[i+rowNum]}-cell`).data("color", window.playerColors[i+rowNum])
+            $(`#${window.playerColors[i+rowNum]}-cell`).data("state", "stateless")
+        }
+    }
+
 }

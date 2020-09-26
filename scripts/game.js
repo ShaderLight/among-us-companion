@@ -4,12 +4,11 @@ async function startGame() {
     }
     else {
         document.getElementById("player-container").innerHTML = generatePlayerTable()
-
         document.getElementById("selection-page").classList.toggle("faded")
 
         await sleep(80)
         $('.wrapper').scrollTo('#game-page', {duration:600})
-        window.currentPage = $('game-page')
+        window.currentPage = $('#game-page')
         await sleep(300)
 
         document.getElementById("game-page").classList.toggle("faded")
@@ -29,18 +28,19 @@ async function endGame() {
 
 function generatePlayerTable() {
     var tableString;
-    tableString = "<table>"
-    
+        
     rowNum = Math.ceil(window.playerColors.length/2)
+    height = rowNum * 20
+    tableString = `<table id="player-table" style="height: ${height}%">`
 
     for (i=0; i<rowNum; i++) {
         tableString += "<tr>"
         
         if (window.playerColors[i+rowNum] == undefined) {
-            tableString += `<td>${window.playerColors[i]}</td>`
+            tableString += `<td id="${window.playerColors[i]}-cell" class="player-cell">${window.playerColors[i]}</td>`
         }
         else {
-            tableString += `<td>${window.playerColors[i]}</td><td>${window.playerColors[i+rowNum]}`
+            tableString += `<td id="${window.playerColors[i]}-cell" class="player-cell">${window.playerColors[i]}</td><td id="${window.playerColors[i+rowNum]}-cell" class="player-cell">${window.playerColors[i+rowNum]}`
         }
     }
 

@@ -59,6 +59,7 @@ html, body {
   bottom: 0.2%;
   width: 100%;
   text-align: center;
+  background-color: white;
 }
 
 #game-page {
@@ -67,4 +68,39 @@ html, body {
 
 #post-game {
   left: 300%;
+}
+
+#player-container {
+  border: 3px solid gray;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  left: 20%;
+  top: 10%;
+  width: 60%;
+  height: 60%;
+  background-color: #c5e3f6;
+  box-sizing: border-box;
+}
+
+.player-cell {
+  margin-left: 10px;
+  margin-right: 10%;
+  width: 35%;
+  background-color: white;
+  vertical-align: middle;
+  text-align: middle;
+  border: 2px solid gray;
+  border-radius: 10px;
+  height: 10%;
+}
+
+.player-cell:hover {
+  background-color: #f2f2f2;
+}
+
+#player-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
 }

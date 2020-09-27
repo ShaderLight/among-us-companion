@@ -99,6 +99,11 @@ h1 {
   vertical-align: middle;
   padding: 4px;
   overflow: hidden;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 #selection-page {
@@ -161,6 +166,10 @@ h1 {
   color: white;
   font-size: 15px;
   vertical-align: middle;
+  -webkit-user-select: none;      
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .player-cell:hover {

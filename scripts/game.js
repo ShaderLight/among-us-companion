@@ -5,6 +5,8 @@ async function startGame() {
     else {
         document.getElementById("player-container").innerHTML = generatePlayerTable()
         initPlayerData()
+        loadPlayerImages()
+        scaleFont()
         document.getElementById("selection-page").classList.toggle("faded")
 
         await sleep(80)
@@ -32,7 +34,7 @@ function generatePlayerTable() {
         
     rowNum = Math.ceil(window.playerColors.length/2)
     height = rowNum * 20
-    tableString = `<table id="player-table" style="height: ${height}%">`
+    tableString = `<table id="player-table" cellpadding="0" cellspacing="0" style="height: ${height}%">`
 
     for (i=0; i<rowNum; i++) {
         tableString += "<tr>"
@@ -55,19 +57,19 @@ function stateCycle(invokedById) {
     switch (invokedBy.data('state')) {
         case "stateless":
             invokedBy.data('state', "clean")
-            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            invokedBy[0].innerHTML = `${invokedBy.data('img')} ${invokedBy.data('color')} (${invokedBy.data('state')})`
             break
         case "clean":
             invokedBy.data('state', "suspected")
-            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            invokedBy[0].innerHTML = `${invokedBy.data('img')} ${invokedBy.data('color')} (${invokedBy.data('state')})`
             break
         case "suspected":
             invokedBy.data('state', "dead")
-            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            invokedBy[0].innerHTML = `${invokedBy.data('img')} ${invokedBy.data('color')} (${invokedBy.data('state')})`
             break
         case "dead":
             invokedBy.data('state', "stateless")
-            invokedBy[0].innerHTML = `${invokedBy.data('color')} (${invokedBy.data('state')})`
+            invokedBy[0].innerHTML = `${invokedBy.data('img')} ${invokedBy.data('color')}`
     }
 }
 
@@ -86,5 +88,13 @@ function initPlayerData() {
             $(`#${window.playerColors[i+rowNum]}-cell`).data("state", "stateless")
         }
     }
+}
 
+function loadPlayerImages() {
+    var playerCell;
+    for (i=0; i<window.playerColors.length; i++) {
+        playerCell = $(`#${window.playerColors[i]}-cell`)
+        playerCell[0].innerHTML = `<img class="player-img" src="img/crewmate.png"> ${playerCell.data('color')}`
+        playerCell.data('img', '<img class="player-img" src="img/crewmate.png">')
+    }
 }

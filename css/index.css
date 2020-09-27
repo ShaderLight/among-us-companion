@@ -28,7 +28,7 @@ button {
   overflow: hidden;
   margin: auto;
   background-image: url("../img/space.png");
-  background-size: 70% 100%;
+  background-size: contain;
   animation: moving 60s ease infinite;
 }
 

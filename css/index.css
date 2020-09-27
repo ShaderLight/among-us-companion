@@ -11,6 +11,8 @@ html, body {
   position: relative;
   overflow: hidden;
   margin: auto;
+  background-image: url("../img/space.png");
+  background-size: cover;
 }
 
 .page {
@@ -20,6 +22,7 @@ html, body {
   top: 0;
   left: 0;
   float: left;
+  color:white
 }
 
 .fadeable {

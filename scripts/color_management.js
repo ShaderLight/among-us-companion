@@ -31,7 +31,7 @@ function updateCounter() {
 
 function updateStartButton() {
     if ((window.playerColors.length > 10) || (window.playerColors.length < 3)){
-        document.getElementById("start-button").style.opacity = 0.2
+        document.getElementById("start-button").style.opacity = 0.5
         console.log('not enough players')
     }
     else {

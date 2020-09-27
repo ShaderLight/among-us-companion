@@ -26,11 +26,18 @@ function removeOne(colorArray, color) {
 
 function updateCounter() {
     var len = window.playerColors.length
-    document.getElementById('player-counter').innerHTML = len
+    if ((len > 10) || (len < 3)){
+        document.getElementById('player-counter').style.color = "red"
+    }
+    else {
+        document.getElementById('player-counter').style.color = "green"
+    }
+    document.getElementById('player-counter').innerHTML = `${len}/10 Players`
 }
 
 function updateStartButton() {
-    if ((window.playerColors.length > 10) || (window.playerColors.length < 3)){
+    var len = window.playerColors.length
+    if ((len > 10) || (len < 3)){
         document.getElementById("start-button").style.opacity = 0.5
         console.log('not enough players')
     }

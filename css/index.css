@@ -130,9 +130,10 @@ button {
   top: 10%;
   width: 60%;
   height: 60%;
-  background-color: #c5e3f6;
   box-sizing: border-box;
   color: black;
+  background-image: url("../img/screen.png");
+  background-size: 100% 100%;
 }
 
 .player-cell {

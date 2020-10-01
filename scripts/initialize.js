@@ -1,3 +1,6 @@
+$('document').ready(function() {window.currentPage = $('#welcome-page')});
+$('document').ready(scaleFont());
+
 async function init() {
     window.playerColors = ["red", "blue", "green", "pink", "orange", "yellow", "grey", "white", "purple", "brown", "cyan", "lime"]
     
